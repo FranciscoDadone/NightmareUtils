@@ -1,0 +1,14 @@
+name: BansDatabase
+version: 1.0
+author: Francisco Dadone
+main: me.dadogamer13.bansdatabase.main.Main
+
+commands:
+  addban:
+    aliases: [Ban added to db.]
+    usage: /addban jugador razon
+  historial:
+    aliases: [historial de jugador]
+    usage: /historial jugador
+  removeban:
+    aliases: [remover el ban]
