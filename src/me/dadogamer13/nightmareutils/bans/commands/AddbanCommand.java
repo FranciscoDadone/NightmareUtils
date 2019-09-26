@@ -1,4 +1,4 @@
-package me.dadogamer13.bansdatabase.addban.commands;
+package me.dadogamer13.nightmareutils.bans.commands;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,7 +11,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import me.dadogamer13.bansdatabase.main.Main;
+import me.dadogamer13.nightmareutils.main.Main;
 import net.md_5.bungee.api.ChatColor;
 
 public class AddbanCommand implements CommandExecutor {
@@ -30,18 +30,23 @@ public class AddbanCommand implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String arg2, String[] args) {
 		
 		Player p = (Player) sender;
-		String jugador, duracion = "4d", razon;
+		String jugador, duracion = "4d", razon = "";
 		
 		long millis=System.currentTimeMillis();
 		java.sql.Date dateSQL=new java.sql.Date(millis);
 		
 		
-		if(p.hasPermission("bandatabase.addban")) {
+		if(p.hasPermission("nightmareutils.addban")) {
 			
 			try {
 				
 				jugador = args[0].toString();
-				razon = args[1].toString();
+				
+				for(int i = 1; i < args.length; i++) {
+					
+					razon += args[i] + " ";
+					
+				}
 				
 				
 			} catch(Exception e) {
@@ -55,12 +60,15 @@ public class AddbanCommand implements CommandExecutor {
 			//conexión con la base de datos
 			try {
 				
-				Connection bbdd = DriverManager.getConnection("jdbc:mysql://198.245.51.96:3306/db_56351", "db_56351", "13f94d20f2");
+				String conextion_host = "jdbc:mysql://" + plugin.getConfig().getString("database_host") + ":" + plugin.getConfig().getString("database_port") + "/" + plugin.getConfig().getString("database_username");
+				
+				Connection bbdd = DriverManager.getConnection(conextion_host, plugin.getConfig().getString("database_username"), plugin.getConfig().getString("database_password"));
 				
 				Statement statement = bbdd.createStatement();
 				
 				//comandos sql
-				ResultSet resultset = statement.executeQuery("SELECT * FROM BansPlugin WHERE JUGADOR='"+jugador+"'");
+				String res = "SELECT * FROM " + plugin.getConfig().getString("database_table_name_bans") + " WHERE JUGADOR='"+jugador+"'";
+				ResultSet resultset = statement.executeQuery(res);
 				
 				try {
 					resultset.first();		
@@ -81,7 +89,8 @@ public class AddbanCommand implements CommandExecutor {
 					ban = "tempban " + jugador + " " + duracion + " " + razon;
 				}
 				
-				statement.executeUpdate("INSERT INTO `BansPlugin`(`JUGADOR`, `RAZON`, `DURACION`, `DATEADDED`) VALUES ('"+jugador+"','"+razon+"','"+duracion+"','"+dateSQL+"')");
+				String update = "INSERT INTO `" + plugin.getConfig().getString("database_table_name_bans") + "`(`JUGADOR`, `RAZON`, `DURACION`, `DATEADDED`) VALUES ('"+jugador+"','"+razon+"','"+duracion+"','"+dateSQL+"')";
+				statement.executeUpdate(update);
 				
 				
 			} catch(Exception e) {

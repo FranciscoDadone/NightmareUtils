@@ -1,0 +1,6 @@
+database_host: ''
+database_username: 'db_56351'
+database_port: '3306'
+database_password: ''
+database_table_name_bans: 'BansPlugin'
+database_table_name_join_quit: 'WebIntegrationJoinQuit'

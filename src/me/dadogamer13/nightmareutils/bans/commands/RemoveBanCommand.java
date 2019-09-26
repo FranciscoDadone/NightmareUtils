@@ -1,8 +1,7 @@
-package me.dadogamer13.bansdatabase.addban.commands;
+package me.dadogamer13.nightmareutils.bans.commands;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.Statement;
 
 import org.bukkit.Bukkit;
@@ -11,7 +10,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import me.dadogamer13.bansdatabase.main.Main;
+import me.dadogamer13.nightmareutils.main.Main;
 import net.md_5.bungee.api.ChatColor;
 
 public class RemoveBanCommand implements CommandExecutor{
@@ -31,7 +30,7 @@ public class RemoveBanCommand implements CommandExecutor{
 		Player p = (Player) sender;
 		String jugador;
 		
-		if(p.hasPermission("bandatabase.removeban")) {
+		if(p.hasPermission("nightmareutils.removeban")) {
 			
 			try {
 				
@@ -46,11 +45,14 @@ public class RemoveBanCommand implements CommandExecutor{
 			
 			try {
 				
-				Connection bbdd = DriverManager.getConnection("jdbc:mysql://198.245.51.96:3306/db_56351", "db_56351", "13f94d20f2");
+				String conextion_host = "jdbc:mysql://" + plugin.getConfig().getString("database_host") + ":" + plugin.getConfig().getString("database_port") + "/" + plugin.getConfig().getString("database_username");
+				
+				Connection bbdd = DriverManager.getConnection(conextion_host, plugin.getConfig().getString("database_username"), plugin.getConfig().getString("database_password"));
 				
 				Statement statement = bbdd.createStatement();
 				//comandos sql
-				statement.executeUpdate("DELETE FROM `BansPlugin` WHERE JUGADOR='"+jugador+"'");
+				String update = "DELETE FROM `" + plugin.getConfig().getString("database_table_name_bans") + "` WHERE JUGADOR='"+jugador+"'";
+				statement.executeUpdate(update);
 				
 				String unban = "unban " + jugador;
 				

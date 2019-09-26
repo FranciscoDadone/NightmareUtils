@@ -1,7 +1,7 @@
-name: BansDatabase
-version: 1.0
+name: NightmareUtils
+version: 1.1
 author: Francisco Dadone
-main: me.dadogamer13.bansdatabase.main.Main
+main: me.dadogamer13.nightmareutils.main.Main
 
 commands:
   addban:
@@ -12,3 +12,5 @@ commands:
     usage: /historial jugador
   removeban:
     aliases: [remover el ban]
+  color:
+    aliases: [cambia el color del nick]
