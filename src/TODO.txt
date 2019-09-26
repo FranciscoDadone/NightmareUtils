@@ -1,2 +1,0 @@
-TODO:
-	"Para ahorrar un comando :v en vez de poner authme accounts muguckz, que aparezca con el pl tuyo usando historial"
