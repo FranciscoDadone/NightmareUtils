@@ -10,7 +10,7 @@ database_table_name_join_quit: 'WebIntegrationJoinQuit'
 
 
 # Permissions
-# /ban -> Nightmare.ban                         | 
+# /ban -> Nightmare.ban
 # /historial -> Nightmare.historial
 # /unban -> Nightmare.unban
 # /color -> nightmareutils.color
