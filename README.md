@@ -3,7 +3,7 @@ Spigot plugin 1.15.1
 Plugin para el servidor de NightmarePhoenix Factions.
 
 # Commands
- - /ban | nightmareutils.ban | /abn IGN RAZON
+ - /ban | nightmareutils.ban | /ban IGN RAZON
  - /unban | nightmareutils.unban | /unban IGN
  - /color | nightmareutils.color | /color
  
