@@ -1,9 +1,9 @@
 # NightmareUtils
 Spigot plugin 1.15.1
-Plugin para el servidor de NightmarePhoenix Factions.
+Plugin para el servidor de NightmarePhoenix.
 
 # Commands
- - /ban | nightmareutils.ban | /ban IGN RAZON
+ - /ban | nightmareutils.ban | /ban IGN RAZÓN
  - /unban | nightmareutils.unban | /unban IGN
  - /color | nightmareutils.color | /color
  
