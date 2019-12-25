@@ -2,15 +2,19 @@ name: NightmareUtils
 version: 1.1
 author: Francisco Dadone
 main: me.dadogamer13.nightmareutils.main.Main
+api-version: 1.13
 
 commands:
-  addban:
+  ban:
     aliases: [Ban added to db.]
-    usage: /addban jugador razon
+    usage: /ban jugador razon [-s]
+  tempban:
+    aliases: [Ban added to db.]
+    usage: /ban jugador razon [-s]
   historial:
     aliases: [historial de jugador]
     usage: /historial jugador
-  removeban:
+  unban:
     aliases: [remover el ban]
   color:
     aliases: [cambia el color del nick]

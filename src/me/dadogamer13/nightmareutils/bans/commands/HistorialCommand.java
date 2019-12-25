@@ -11,6 +11,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import me.dadogamer13.nightmareutils.main.Main;
+import me.dadogamer13.nightmareutils.utils.Utils;
 import net.md_5.bungee.api.ChatColor;
 
 public class HistorialCommand implements CommandExecutor {
@@ -31,7 +32,7 @@ public class HistorialCommand implements CommandExecutor {
 		Player p = (Player) sender;
 		String jugador;
 		
-		if(p.hasPermission("nightmareutils.historial")) {
+		if(p.hasPermission("Nightmare.historial")) {
 			
 			try {
 				
@@ -58,7 +59,7 @@ public class HistorialCommand implements CommandExecutor {
 				String res = "SELECT * FROM " + plugin.getConfig().getString("database_table_name_bans") + " WHERE JUGADOR='"+jugador+"'";
 				ResultSet resultset = statement.executeQuery(res);				
 				
-				p.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "BansDB" + ChatColor.WHITE + " > " + "Historial del jugador " + jugador + ":");
+				p.sendMessage(Utils.chat(plugin.getConfig().getString("server_name") + " &f> &7Historial del jugador " + jugador + "&7:"));
 				
 				
 				resultset.first();
@@ -75,7 +76,7 @@ public class HistorialCommand implements CommandExecutor {
 				
 			} catch(Exception e) {
 				
-				p.sendMessage(ChatColor.RED + "Jugador no encontrado.");
+				p.sendMessage(Utils.chat(plugin.getConfig().getString("server_name") + " &f> &7Jugador no encontrado."));
 
 			}
 			

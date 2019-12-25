@@ -17,13 +17,13 @@ public class Utils {
 		
 	}
 	
-	public static ItemStack createItem(Inventory inv, int materialId, int amount, int invSlot, String displayName, String... loreString) {
+	public static ItemStack createItem(Inventory inv, Material materialId, int amount, int invSlot, String displayName, String... loreString) {
 		
 		ItemStack item;
 		
-		List<String> lore = new ArrayList();
+		List<String> lore = new ArrayList<String>();
 		
-		item = new ItemStack(Material.getMaterial(materialId), amount);
+		item = new ItemStack(materialId, amount);
 		
 		ItemMeta meta = item.getItemMeta();
 		meta.setDisplayName(Utils.chat(displayName));
@@ -43,13 +43,14 @@ public class Utils {
 		
 	}
 	
-	public static ItemStack createItemByte(Inventory inv, int materialId, int byteId, int amount, int invSlot, String displayName, String... loreString) {
+	@SuppressWarnings("deprecation")
+	public static ItemStack createItemByte(Inventory inv, String materialId, int byteId, int amount, int invSlot, String displayName, String... loreString) {
 		
 		ItemStack item;
 		
-		List<String> lore = new ArrayList();
+		List<String> lore = new ArrayList<String>();
 		
-		item = new ItemStack(Material.getMaterial(materialId), amount, (short) byteId);
+		item = new ItemStack(Material.getMaterial("WHITE_WOOL"), amount, (byte) byteId); //materialId
 		
 		ItemMeta meta = item.getItemMeta();
 		meta.setDisplayName(Utils.chat(displayName));

@@ -1,6 +1,6 @@
 # NightmareUtils
-Spigot plugin 1.8.8
-Plugin para el servidor de Nightmare Factions.
+Spigot plugin 1.15.1
+Plugin para el servidor de NightmarePhoenix Factions.
 
 # Commands
  - /addban | nightmareutils.addban | /addban IGN RAZON
@@ -12,6 +12,3 @@ Plugin para el servidor de Nightmare Factions.
 # Base de datos
 - "BansPlugin" donde se guarda la información de los jugadores baneados.
 - "WebIntegrationJoinQuit" donde se pueden ver los jugadores online en el servidor. Útil para mostrar esos jugadores en una página web.
-
-# TODO
-- Hacer variable la duración del primer ban.

@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-import me.dadogamer13.webconnect.com.netfily.nightmarefactions.PlayerList.OnlinePlayers;
 import net.md_5.bungee.api.ChatColor;
 
 public class DatabaseEnvSetup {

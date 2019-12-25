@@ -11,10 +11,8 @@ import me.dadogamer13.nightmareutils.main.Main;
 
 public class InventoryClickListener implements Listener {
 	
-	private Main plugin;
 	public InventoryClickListener(Main plugin) {
 		
-		this.plugin = plugin;
 		Bukkit.getPluginManager().registerEvents(this, plugin);
 		
 	}
@@ -22,7 +20,7 @@ public class InventoryClickListener implements Listener {
 	@EventHandler
 	public void onClick(InventoryClickEvent e) {
 		
-		String title = e.getInventory().getTitle();
+		String title = e.getView().getTitle();
 		
 		if(title.equals(UI.inventory_name)) {
 			

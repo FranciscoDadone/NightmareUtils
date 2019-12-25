@@ -11,11 +11,8 @@ import net.md_5.bungee.api.ChatColor;
 
 public class ColorCommand implements CommandExecutor {
 	
-	private Main plugin;
-	
 	public ColorCommand(Main plugin) {
-		
-		this.plugin = plugin;
+	
 		plugin.getCommand("color").setExecutor(this);
 		
 	}
